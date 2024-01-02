@@ -175,4 +175,3 @@ resource "aws_route_table_association" "db" {
   subnet_id      = aws_subnet.db_subnets[count.index].id
   route_table_id = aws_route_table.db.id
 }
-//
