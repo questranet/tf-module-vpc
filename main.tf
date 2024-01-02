@@ -158,19 +158,19 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "private" {
+resource "aws_route_table_association" "web" {
   count          = length(var.web_subnets)
   subnet_id      = aws_subnet.web_subnets[count.index].id
   route_table_id = aws_route_table.web.id
 }
 
-resource "aws_route_table_association" "private" {
+resource "aws_route_table_association" "app" {
   count          = length(var.app_subnets)
   subnet_id      = aws_subnet.app_subnets[count.index].id
   route_table_id = aws_route_table.app.id
 }
 
-resource "aws_route_table_association" "private" {
+resource "aws_route_table_association" "db" {
   count          = length(var.db_subnets)
   subnet_id      = aws_subnet.db_subnets[count.index].id
   route_table_id = aws_route_table.db.id
